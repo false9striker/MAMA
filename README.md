@@ -39,3 +39,6 @@ MAMA, the **MA**ss **MA**iler application, is an open source alternative to mail
     }
  
 
+#### Running the application ####
+
+From the command prompt run - `node app.js` . You should be able to see a sign in page at [http://localhost:3000/](http://localhost:3000/)
