@@ -8,7 +8,8 @@ MAMA, the **MA**ss **MA**iler application, is an open source alternative to mail
 #### How to get going: ####
 
 
-1. Install [Node.js](http://nodejs.org/download/) for your operating system
+1. Install [Node.js](http://nodejs.org/download/) for your operating system.
+2. Install [MongoDB](http://www.mongodb.org/) for your operating system.
 2. Get a copy of code - `https://github.com/bbytes/MAMA.git` to your local directory.
 3. Run the command -  `npm install -d`. This should install the dependencies currently added in `package.json` file.
 
@@ -40,5 +41,7 @@ MAMA, the **MA**ss **MA**iler application, is an open source alternative to mail
  
 
 #### Running the application ####
+
+Start the MongoDB database and keep it running at localhost default port.
 
 From the command prompt run - `node app.js` . You should be able to see a sign in page at [http://localhost:3000/](http://localhost:3000/)
