@@ -11,7 +11,7 @@ MAMA, the **MA**ss **MA**iler application, is an open source alternative to mail
 1. Install [Node.js](http://nodejs.org/download/) for your operating system.
 2. Install [MongoDB](http://www.mongodb.org/) for your operating system.
 2. Get a copy of code - `https://github.com/bbytes/MAMA.git` to your local directory.
-3. Run the command -  `npm install -d`. This should install the dependencies currently added in `package.json` file.
+3. Run the command -  `npm install -d` - in Node command prmpt after changing to your cloned directory. This should install the dependencies currently added in `package.json` file.
 
 #### Folder Structure ####
 
