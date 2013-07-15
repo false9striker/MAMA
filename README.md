@@ -1,7 +1,7 @@
 MAMA
 ====
 
-MAMA, the **MA**ss **MA**iler application, is an open source alternative to mailchimp from Beyond Bytes built on top of Node.js, Express,js and MongoDB. Be ready to power yourself with MAMA. 
+MAMA, the **MA**ss **MA**iler application, is an open source alternative to mailchimp from Beyond Bytes built on top of Node.js, Express.js and MongoDB. Be ready to power yourself with MAMA. 
 
 ### Notes for Beyond Bytes Contributers ###
 
