@@ -11,6 +11,7 @@
     "stylus": "*",
     "mongoose" :"latest",
     "passport": "latest",
-    "passport-local": "latest"
+    "passport-local": "latest",
+    "connect-multipart-gridform":"0.1.4"
   }
 }

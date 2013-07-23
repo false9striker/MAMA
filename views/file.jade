@@ -1,0 +1,18 @@
+doctype 5
+html
+  head
+    title Connect-multipart-gridform
+  body
+    form(action='/upload', method='POST',enctype='multipart/form-data')
+      input(name='file', type='file', multiple='multiple')
+      input(type='submit')
+    table
+      thead
+        tr
+          th Filename
+          th ContentType
+          th Size
+          th UploadDate
+          th Actions
+      tbody
+
