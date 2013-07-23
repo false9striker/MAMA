@@ -15,7 +15,7 @@ var path = require('path')
 
 module.exports = {
   development: {
-    db: 'mongodb://localhost/noobjs_dev',
+    db: 'mongodb://localhost/MAMA',
     root: rootPath,
     notifier: notifier,
     app: {
