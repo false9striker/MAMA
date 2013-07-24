@@ -4,9 +4,6 @@
 
 var express = require('express'), fs = require('fs'), mongoose = require('mongoose'),
     http = require('http'), path = require('path'), passport = require('passport');
-var multipart = require('connect-multipart-gridform');
-
-
 
 // Bootstrap models
 var models_path = __dirname + '/../models';
@@ -14,9 +11,6 @@ fs.readdirSync(models_path).forEach(function(file) {
     if (~file.indexOf('.js'))
         require(models_path + '/' + file);
 });
-
-var app = express();
-
 
 
 module.exports = function (app, config) {
@@ -33,10 +27,6 @@ app.use(app.router);
 app.use(require('stylus').middleware(__dirname + './../public'));
 app.use(express.static(path.join(__dirname, './../public')));
 app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + "./../public/temp/" }));
-app.use(multipart({
-        db : config.db,
-        mongo : mongoose
-    }));
 
 
     passport.serializeUser(function(user, done) {

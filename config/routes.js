@@ -34,7 +34,5 @@ module.exports = function(app, config) {
 	}), users.authCallback);
 
 }
-/**
- * Route middlewares
- */
+
 

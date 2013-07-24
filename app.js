@@ -26,6 +26,8 @@ var env = process.env.NODE_ENV || 'development'
     , config = require('./config/config')[env]
     , mongoose = require('mongoose')
 
+
+
 // Bootstrap db connection
 mongoose.connect(config.db)
 
@@ -44,5 +46,4 @@ var port = process.env.PORT || 3000
 app.listen(port)
 console.log('Express app started on port '+port)
 
-// expose app
-exports = module.exports = app
+
