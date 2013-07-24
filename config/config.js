@@ -19,7 +19,7 @@ module.exports = {
     root: rootPath,
     notifier: notifier,
     app: {
-      name: 'Nodejs Express Mongoose Demo'
+      name: 'MAMA'
     },
     facebook: {
       clientID: "APP_ID",
@@ -27,8 +27,8 @@ module.exports = {
       callbackURL: "http://localhost:3000/auth/facebook/callback"
     },
     twitter: {
-      clientID: "CONSUMER_KEY",
-      clientSecret: "CONSUMER_SECRET",
+      clientID: "ItkeFSQPMTTRbA5yOtFLeg",
+      clientSecret: "Fvw0NCwoyiC7HRU1jeLkYxwilWtNnGI8Iew96JX1m8",
       callbackURL: "http://localhost:3000/auth/twitter/callback"
     },
     github: {
@@ -43,11 +43,11 @@ module.exports = {
     },
   },
   test: {
-    db: 'mongodb://localhost/noobjs_test',
+    db: 'mongodb://localhost/MAMA',
     root: rootPath,
     notifier: notifier,
     app: {
-      name: 'Nodejs Express Mongoose Demo'
+      name: 'MAMA'
     },
     facebook: {
       clientID: "APP_ID",

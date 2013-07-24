@@ -5,10 +5,16 @@
 var mongoose = require('mongoose'), Schema = mongoose.Schema
 
 var UserSchema = new Schema({
-	firstname : String,
-	lastname : String,
-	email : String,
-	password : String
+	firstname : { type: String, default: '' },
+	lastname : { type: String, default: '' },
+	email : { type: String, default: '' },
+	password : { type: String, default: '' },
+	provider: { type: String, default: '' },
+	facebook: {},
+  twitter: {},
+  github: {},
+  google: {}
+	
 });
 
 UserSchema.methods = {
