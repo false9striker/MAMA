@@ -14,6 +14,12 @@ var express = require('express')
  * Please note that the order of loading is important.
  */
 
+// Bootstrap models
+var models_path = __dirname + '/models'
+fs.readdirSync(models_path).forEach(function (file) {
+    if (~file.indexOf('.js')) require(models_path + '/' + file)
+})    
+    
 // Load configurations
 // if test env, load example file
 var env = process.env.NODE_ENV || 'development'
@@ -23,11 +29,7 @@ var env = process.env.NODE_ENV || 'development'
 // Bootstrap db connection
 mongoose.connect(config.db)
 
-// Bootstrap models
-var models_path = __dirname + '/models'
-fs.readdirSync(models_path).forEach(function (file) {
-    if (~file.indexOf('.js')) require(models_path + '/' + file)
-})
+
 
 
 var app = express()

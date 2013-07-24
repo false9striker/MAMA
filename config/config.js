@@ -19,7 +19,7 @@ module.exports = {
     root: rootPath,
     notifier: notifier,
     app: {
-      name: 'Nodejs Express Mongoose Demo'
+      name: 'MAMA'
     },
     facebook: {
       clientID: "APP_ID",
@@ -43,11 +43,11 @@ module.exports = {
     },
   },
   test: {
-    db: 'mongodb://localhost/noobjs_test',
+    db: 'mongodb://localhost/MAMA',
     root: rootPath,
     notifier: notifier,
     app: {
-      name: 'Nodejs Express Mongoose Demo'
+      name: 'MAMA'
     },
     facebook: {
       clientID: "APP_ID",

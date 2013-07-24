@@ -11,7 +11,10 @@
     "stylus": "*",
     "mongoose" :"latest",
     "passport": "latest",
-    "passport-local": "latest",
+    "passport-facebook": "latest",
+    "passport-twitter": "latest",
+    "passport-github": "latest",
+    "passport-google-oauth": "latest",
     "connect-multipart-gridform":"0.1.4"
   }
 }
