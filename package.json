@@ -10,6 +10,7 @@
     "jade": "*",
     "stylus": "*",
     "mongoose" :"latest",
+    "connect-flash": "latest",    
     "passport": "latest",
     "passport-facebook": "latest",
     "passport-twitter": "latest",

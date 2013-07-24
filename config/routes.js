@@ -5,16 +5,13 @@
 module.exports = function(app, config) {
 	var users = require('../controllers/users'), template = require('../controllers/template'), passport = require('passport');
 
-	var file = require('../controllers/file')(config.db);
-
 	app.get('/', users.login);
-	app.get('/users', users.list);
 	app.get('/template', template.template);
 
-	app.get('/file', file.index);
-	app.post('/upload', file.showUploadFiles, file.getFiles, file.index);
-	app.get('/download/:fileId', file.download);
-	app.get('/remove/:fileId', file.remove, file.getFiles, file.index);
+//	app.get('/file', file.index);
+//	app.post('/upload', file.showUploadFiles, file.getFiles, file.index);
+//	app.get('/download/:fileId', file.download);
+//	app.get('/remove/:fileId', file.remove, file.getFiles, file.index);
 
 	app.get('/auth/facebook', passport.authenticate('facebook', {
 		scope : [ 'email', 'user_about_me' ],

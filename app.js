@@ -1,6 +1,3 @@
-
-
-
 /**
  * Module dependencies.
  */
@@ -26,20 +23,15 @@ var env = process.env.NODE_ENV || 'development'
     , config = require('./config/config')[env]
     , mongoose = require('mongoose')
 
-
-
 // Bootstrap db connection
 mongoose.connect(config.db)
 
-
-
-
+//bootstrap passport config
+require('./config/passport')(passport, config)
 var app = express()
 // express settings
 var express = require('./config/express')  ;
 express(app,config);
-
-
 
 // Start the app by listening on <port>
 var port = process.env.PORT || 3000

@@ -21,7 +21,7 @@ exports.authCallback = function (req, res, next) {
  */
 
 exports.login = function (req, res) {
-  res.render('users/login', {
+  res.render('login', {
     title: 'Login',
     message: req.flash('error')
   })

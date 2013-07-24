@@ -17,12 +17,12 @@ head(prefix='og: http://ogp.me/ns# nodejsexpressdemo: http://ogp.me/ns/apps/node
     meta(property='fb:admins', content='1037213945')
     //
           <Application>styles</Application>
-    link(rel='stylesheet', href='../public/css/bootstrap.min.css')
-    link(rel='stylesheet', href='../public/css/bootstrap-responsive.min.css')
-    link(rel='stylesheet', href='../public/css/jquery.tagsinput.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='/css/jquery.tagsinput.css')
     //
-          <link rel="stylesheet" href="../public/css/bootstrap-responsive.min.css">
-    link(rel='stylesheet', href='../public/css/app.css')
+          <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    link(rel='stylesheet', href='/css/app.css')
     //
       <link rel="stylesheet" href="/assets/css/application.css">
     //
@@ -31,45 +31,35 @@ head(prefix='og: http://ogp.me/ns# nodejsexpressdemo: http://ogp.me/ns/apps/node
       script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
   body
     .wrapper
-      header#header
-        .navbar.navbar-fixed-top(role='navigation')
-          .navbar-inner
-            .container
-              a.brand(href='/') MAMA
-              .nav-collapse.collapse
-                ul.nav
-                  li
-                    a(href='/articles/new', title='new article') New
-                ul.nav.pull-right
-                  li
-                    iframe(style='border: 0; margin: 10px 0 0 0; padding: 0;', src='https://www.gittip.com/madhums/widget.html', width='48pt', height='22pt')
-                  li
-                    a(href='/login', title='Login') Login
-      .container
-        .main-content
-          .main-head
-            h1 Login
-          .offset1
-            a(href='/auth/facebook')
-              img(src='../public/images/facebook.png')
-            a(href='/auth/github')
-              img(src='../public/images/github.png')
-            a(href='/auth/twitter')
-              img(src='../public/images/twitter.png')
-            a(href='/auth/google')
-              img(src='../public/images/google.png')
-      .push
-    script(src='/js/jquery.min.js')
-    script(src='/js/bootstrap.min.js')
-    script(src='/js/bootbox.js')
-    script(src='/js/jquery.tagsinput.min.js')
-    script(src='/js/app.js')
-    script
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-25468002-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+      .navbar.navbar-fixed-top(role='navigation')
+        .navbar-inner
+          .container
+            a.brand(href='/') MAMA
+        .container
+          .main-content
+            .main-head
+              h1 Login
+            .offset1
+              a(href='/auth/facebook')
+                img(src='/images/facebook.png')
+              a(href='/auth/github')
+                img(src='/images/github.png')
+              a(href='/auth/twitter')
+                img(src='/images/twitter.png')
+              a(href='/auth/google')
+                img(src='/images/google.png')
+        .push
+      script(src='/js/jquery.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(src='/js/bootbox.js')
+      script(src='/js/jquery.tagsinput.min.js')
+      script(src='/js/app.js')
+      script
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-25468002-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
