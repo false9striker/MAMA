@@ -6,6 +6,7 @@ module.exports = function(app, config) {
 	var users = require('../controllers/users'), home = require('../controllers/home'), template = require('../controllers/template'), passport = require('passport');
 
 	app.get('/', users.login);
+	app.get('/logout', users.logout);
 	app.get('/template', template.template);
 	app.get('/home/:name', home.home);
 //	app.get('/file', file.index);
