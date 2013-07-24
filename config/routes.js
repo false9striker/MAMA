@@ -3,11 +3,11 @@
  */
 
 module.exports = function(app, config) {
-	var users = require('../controllers/users'), template = require('../controllers/template'), passport = require('passport');
+	var users = require('../controllers/users'), home = require('../controllers/home'), template = require('../controllers/template'), passport = require('passport');
 
 	app.get('/', users.login);
 	app.get('/template', template.template);
-
+	app.get('/home/:name', home.home);
 //	app.get('/file', file.index);
 //	app.post('/upload', file.showUploadFiles, file.getFiles, file.index);
 //	app.get('/download/:fileId', file.download);
@@ -30,6 +30,6 @@ module.exports = function(app, config) {
 		failureRedirect : '/'
 	}), users.authCallback);
 
-}
+};
 
 
