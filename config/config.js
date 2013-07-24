@@ -22,8 +22,8 @@ module.exports = {
       name: 'MAMA'
     },
     facebook: {
-      clientID: "APP_ID",
-      clientSecret: "APP_SECRET",
+      clientID: "377696209019979",
+      clientSecret: "837e66d5e5330077b134f4256a3d3a68",
       callbackURL: "http://localhost:3000/auth/facebook/callback"
     },
     twitter: {
