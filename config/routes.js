@@ -34,9 +34,16 @@ module.exports = function(app, config) {
 		failureRedirect : '/'
 	}), users.authCallback);
 	
+	app.get('/auth/linkedin', passport.authenticate('linkedin', {
+		failureRedirect : '/'
+	}), users.signin);
+	
+	app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
+		failureRedirect : '/'
+	}), users.authCallback);
+
 	app.get('/list/create', list.create);
 	app.post('/list/upload', list.upload);
-
 };
 
 

@@ -36,6 +36,11 @@ module.exports = {
       clientSecret: 'APP_SECRET',
       callbackURL: 'http://localhost:3000/auth/github/callback'
     },
+    linkedin: {
+        clientID: 'f5bxjy24xp8q',
+        clientSecret: 'GjyHmbKS3xFwLBi7',
+        callbackURL: 'http://localhost:3000/auth/linkedin/callback'
+      },
     google: {
       clientID: "APP_ID",
       clientSecret: "APP_SECRET",
@@ -64,6 +69,11 @@ module.exports = {
       clientSecret: 'APP_SECRET',
       callbackURL: 'http://localhost:3000/auth/github/callback'
     },
+    linkedin: {
+        clientID: 'f5bxjy24xp8q',
+        clientSecret: 'GjyHmbKS3xFwLBi7',
+        callbackURL: 'http://localhost:3000/auth/linkedin/callback'
+      },
     google: {
       clientID: "APP_ID",
       clientSecret: "APP_SECRET",

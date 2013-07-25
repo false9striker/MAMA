@@ -12,10 +12,15 @@ exports.signin = function(req, res) {
  */
 
 exports.authCallback = function(req, res, next) {
-	console.log(req.user)
+	console.log(req);
 	var user = req.user;
+	//Twitter
 	if (user.twitter) {
 		res.redirect('/home/' + user.twitter.screen_name);
+
+	}//LinkedIn
+	else if(user._id){
+		res.redirect('/home/' + user._id);
 	} else if (user.facebook) {
 		res.redirect('/home/' + user.facebook.username);
 	}
