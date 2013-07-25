@@ -17,11 +17,16 @@ exports.authCallback = function(req, res, next) {
 	//Twitter
 	if (user.twitter) {
 		res.redirect('/home/' + user.twitter.screen_name);
+
 	}//LinkedIn
 	else if(user._id){
 		res.redirect('/home/' + user._id);
+	} else if (user.facebook) {
+		res.redirect('/home/' + user.facebook.username);
 	}
-	
+	//if nothing works redirect to home page
+	else
+		res.redirect('/');
 	// TODO: Other strategies should check what is the output from the console.log
 	// in the first line and
 
@@ -34,7 +39,8 @@ exports.authCallback = function(req, res, next) {
 exports.login = function(req, res) {
 	res.render('login', {
 		title : 'Login',
-		message : req.flash('error')
+		message : req.flash('error'),
+		req: req
 	})
 }
 
@@ -55,7 +61,7 @@ exports.signup = function(req, res) {
 
 exports.logout = function(req, res) {
 	req.logout()
-	res.redirect('/login')
+	res.redirect('/')
 }
 
 /**
@@ -73,8 +79,8 @@ exports.session = function(req, res) {
 /*
  * exports.create = function (req, res) { var user = new User(req.body)
  * user.provider = 'local' user.save(function (err) { if (err) { return
- * res.render('users/signup', { errors: err.errors, user: user, title: 'Sign up' }) }
- *  // manually login the user once successfully signed up req.logIn(user,
+ * res.render('users/signup', { errors: err.errors, user: user, title: 'Sign up' }) } //
+ * manually login the user once successfully signed up req.logIn(user,
  * function(err) { if (err) return next(err) return res.redirect('/') }) }) }
  */
 

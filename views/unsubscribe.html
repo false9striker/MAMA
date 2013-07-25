@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app><head>
+<title>Unsubscribe</title>
+<link rel="stylesheet" href="/css/unsubscribe.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+<script type="text/javascript" src="/js/vendor/angular.js"></script>
+<script type="text/javascript" src="/js/vendor/angular-strap.js"></script>
+<script type="text/javascript" src="/js/unsubCtlr.js"></script>
+</head>
+<body>
+<div class="container-fluid" ng-controller="UnsubscribeNotificationController">
+<div class="row-fluid">
+<div class="span12" align="center" id="container">
+<h1><a href"javascript:;">MAMA</a></h1>
+<div ng-show='swapDiv'>
+<h4>Hello #{username},</h4>
+<h4>We are sorry to see you go.</h4>
+<h5>We would love to know why you are leaving us!</h5>
+<input class="btn" id="chkIrrelevant" type="checkbox" name="irrelevant" value="all" checked="checked" ng-model="irrelevant">
+<label for="chkIrrelevant">Not relevant</label>
+<input class="btn" id="chkFrequent" type="checkbox" name="frequent" value="false" ng-model="frequent">
+<label for="chkFrequent">Too frequent</label>
+<input class="btn" id="chkOthers" type="checkbox" name="other" value="true" ng-model="other">
+<label for="chkOthers" name="name">Other</label>
+<br />
+<textarea ng-model="comments" ng-cloak placeholder="{{helpText}}" ng-show="other" rows="4" cols="50" />
+<br />
+<button type="submit" class="btn btn-large btn-block btn-primary" ng:click="removeMe()"><i class="icon-minus icon-white"></i>   Unsubscribe</button>
+</div>
+<div ng-hide='swapDiv'>
+<p id="respMessage">{{respMessage}}</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
