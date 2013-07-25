@@ -1,0 +1,33 @@
+!!! 5
+html(ng-app)
+head
+    title Unsubscribe
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/unsubscribe.css')
+    script(type='text/javascript', src='/js/vendor/angular.js')
+    script(type='text/javascript', src='/js/vendor/angular-strap.js')
+    script(type='text/javascript', src='/js/unsubCtlr.js')
+  body
+    .container-fluid(ng-controller='UnsubscribeNotificationController')
+      .row-fluid
+        #container.span12(align='center')
+          h1
+            a(href='javascript:;') MAMA
+          div(ng-show='swapDiv')
+            h4 Hello #{username},
+            h4 We are sorry to see you go.
+            h5 We would love to know why you are leaving us!
+            input#chkIrrelevant.btn(type='checkbox', name='irrelevant', value='all', checked='checked', ng-model='irrelevant')
+            label(for='chkIrrelevant') Not relevant
+            input#chkFrequent.btn(type='checkbox', name='frequent', value='false', ng-model='frequent')
+            label(for='chkFrequent') Too frequent
+            input#chkOthers.btn(type='checkbox', name='other', value='true', ng-model='other')
+            label(for='chkOthers', name='name') Other
+            br
+            textarea(ng-model='comments', ng-cloak placeholder='{{helpText}}', ng-show='other', rows='4', cols='50')
+            br
+            button.btn.btn-large.btn-block.btn-primary(type='submit', ng:click='removeMe()')
+              i.icon-minus.icon-white
+              | Unsubscribe
+          div(ng-hide='swapDiv')
+            p#respMessage {{respMessage}}
