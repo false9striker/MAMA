@@ -16,6 +16,7 @@
     "passport-twitter": "latest",
     "passport-github": "latest",
     "passport-google-oauth": "latest",
-    "connect-multipart-gridform":"0.1.4"
+    "connect-multipart-gridform":"0.1.4",
+    "passport-linkedin":"latest"
   }
 }

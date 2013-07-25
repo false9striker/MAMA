@@ -29,6 +29,14 @@ module.exports = function(app, config) {
 	app.get('/auth/twitter/callback', passport.authenticate('twitter', {
 		failureRedirect : '/'
 	}), users.authCallback);
+	
+	app.get('/auth/linkedin', passport.authenticate('linkedin', {
+		failureRedirect : '/'
+	}), users.signin);
+	
+	app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
+		failureRedirect : '/'
+	}), users.authCallback);
 
 };
 

@@ -2,7 +2,7 @@
  * Config file for passport.js
  */
 
-var mongoose = require('mongoose'), TwitterStrategy = require('passport-twitter').Strategy, FacebookStrategy = require('passport-facebook').Strategy, User = mongoose
+var mongoose = require('mongoose'), TwitterStrategy = require('passport-twitter').Strategy, FacebookStrategy = require('passport-facebook').Strategy, LinkedInStrategy = require('passport-linkedin').Strategy, User = mongoose
 		.model('User');
 
 module.exports = function(passport, config) {
@@ -50,6 +50,50 @@ module.exports = function(passport, config) {
 			}
 		});
 	}));
+	
+	//use linkedin strategy
+	
+	passport.use(new LinkedInStrategy({
+		consumerKey : config.linkedin.clientID,
+		consumerSecret : config.linkedin.clientSecret,
+		callbackURL : config.linkedin.callbackURL
+	}, function(token, tokenSecret, profile, done) {
+		User.findOne({
+			'linkedin.id' : profile.id
+		}, function(err, user) {
+			if (err) {
+				return done(err);
+			}
+			if (!user) {
+				user = new User({
+					name : profile.displayName,
+					username : profile.username,
+					provider : 'linkedin',
+					linkedin : profile._json
+				});
+				user.save(function(err) {
+					if (err)
+						console.log(err);
+					return done(err, user);
+				});
+			} else {
+				return done(err, user);
+			}
+		});
+	}));
+	
+	/*passport.use(new LinkedInStrategy({
+		consumerKey : config.linkedin.clientID,
+		consumerSecret : config.linkedin.clientSecret,
+		callbackURL : config.linkedin.callbackURL
+	}, function(token, tokenSecret, profile, done) {
+		User.findOrCreate({
+			linkedinId : profile.id
+		}, function(err, user) {
+			return done(err, user);
+		});
+	}));*/
+	
 
 	// use facebook strategy
 	passport.use(new FacebookStrategy({
