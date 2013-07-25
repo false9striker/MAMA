@@ -3,7 +3,7 @@
  */
 
 module.exports = function(app, config) {
-	var users = require('../controllers/users'), home = require('../controllers/home'), template = require('../controllers/template'), passport = require('passport');
+	var users = require('../controllers/users'), home = require('../controllers/home'), template = require('../controllers/template'), passport = require('passport'), list = require('../controllers/list');
 
 	app.get('/', users.login);
 	app.get('/logout', users.logout);
@@ -30,6 +30,9 @@ module.exports = function(app, config) {
 	app.get('/auth/twitter/callback', passport.authenticate('twitter', {
 		failureRedirect : '/'
 	}), users.authCallback);
+	
+	app.get('/list/create', list.create);
+	app.post('/list/upload', list.upload);
 
 };
 

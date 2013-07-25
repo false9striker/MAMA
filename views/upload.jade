@@ -1,0 +1,53 @@
+!!! 5
+html(lang='en')
+head
+    meta(charset='utf-8')
+    title Sign in
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    //
+       Le styles 
+    link(href='/css/bootstrap.css', rel='stylesheet')
+    style(type='text/css')
+      body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+      }
+   
+    link(href='/css/bootstrap-responsive.css', rel='stylesheet')
+    //
+       HTML5 shim, for IE6-8 support of HTML5 elements 
+    //if lt IE 9
+      script(src='/javascripts/html5shiv.js')
+    //
+       Fav and touch icons 
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='../assets/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='../assets/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='../assets/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='../assets/ico/apple-touch-icon-57-precomposed.png')
+    link(rel='shortcut icon', href='/favicon.ico')
+    script(src='/js/vendor/bootstrap.js')
+    script(src='/js/vendor/bootstrap.min.js')
+    script(src='/js/vendor/jquery-1.10.1.min.js')
+    script(src='/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='#')  #{project_name}
+          .nav-collapse.collapse
+            form.navbar-form.pull-right(method='get', action='/signup')
+              button.btn(type='submit') Sign Up
+          //
+            /.nav-collapse 
+    .container
+      form.form-signin(method='POST', action='/list/upload', enctype="multipart/form-data")
+        h2.form-signin-heading Upload CSV file
+        button(type='submit') Upload File
+        input(type='file', name='groupfile') Upload
