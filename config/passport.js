@@ -2,8 +2,13 @@
  * Config file for passport.js
  */
 
-var mongoose = require('mongoose'), TwitterStrategy = require('passport-twitter').Strategy, FacebookStrategy = require('passport-facebook').Strategy, LinkedInStrategy = require('passport-linkedin').Strategy, User = mongoose
-		.model('User');
+var mongoose = require('mongoose'),
+    TwitterStrategy = require('passport-twitter').Strategy, 
+    GitHubStrategy = require('passport-github').Strategy, 
+    GoogleStrategy = require('passport-google-oauth').OAuth2Strategy, 
+    FacebookStrategy = require('passport-facebook').Strategy, 
+    LinkedInStrategy = require('passport-linkedin').Strategy, 
+    User = mongoose.model('User');
 
 module.exports = function(passport, config) {
 	// require('./initializer')
@@ -51,6 +56,38 @@ module.exports = function(passport, config) {
 		});
 	}));
 	
+	//use github strategy
+	
+	passport.use(new GitHubStrategy({
+		clientID : config.github.clientID,
+		clientSecret : config.github.clientSecret,
+		callbackURL : config.github.callbackURL
+	}, function(token, tokenSecret, profile, done) {
+		User.findOne({
+			'github.id' : profile.id
+		}, function(err, user) {
+			if (err) {
+				return done(err);
+			}
+			if (!user) {
+				user = new User({
+					name : profile.displayName,
+					username : profile.username,
+					provider : 'github',
+					github : profile._json
+				});
+				user.save(function(err) {
+					if (err)
+						console.log(err);
+					return done(err, user);
+				});
+			} else {
+				return done(err, user);
+			}
+		});
+	}));
+	
+	
 	//use linkedin strategy
 	
 	passport.use(new LinkedInStrategy({
@@ -82,19 +119,38 @@ module.exports = function(passport, config) {
 		});
 	}));
 	
-	/*passport.use(new LinkedInStrategy({
-		consumerKey : config.linkedin.clientID,
-		consumerSecret : config.linkedin.clientSecret,
-		callbackURL : config.linkedin.callbackURL
-	}, function(token, tokenSecret, profile, done) {
-		User.findOrCreate({
-			linkedinId : profile.id
+	// use google strategy
+	passport.use(new GoogleStrategy({
+		clientID : config.google.clientID,
+		clientSecret : config.google.clientSecret,
+		callbackURL : config.google.callbackURL
+	}, function(identifier, profile, done) {
+		User.findOne({
+			'google.id' : profile.id
 		}, function(err, user) {
-			return done(err, user);
+			if (err) {
+				return done(err);
+			}
+			if (!user) {
+				user = new User({
+					name : profile.displayName,
+					email : profile.emails[0].value,
+					username : profile.username,
+					provider : 'google',
+					facebook : profile._json
+				});
+				user.save(function(err) {
+					if (err)
+						console.log(err);
+					return done(err, user);
+				});
+			} else {
+				return done(err, user);
+			}
 		});
-	}));*/
+	}));
 	
-
+	
 	// use facebook strategy
 	passport.use(new FacebookStrategy({
 		clientID : config.facebook.clientID,

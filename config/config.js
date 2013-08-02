@@ -11,7 +11,7 @@ var path = require('path')
       key: 'POSTMARK_KEY',
       parseAppId: 'PARSE_APP_ID',
       parseApiKey: 'PARSE_MASTER_KEY'
-    }
+    };
 
 module.exports = {
   development: {
@@ -32,8 +32,8 @@ module.exports = {
       callbackURL: "http://localhost:3000/auth/twitter/callback"
     },
     github: {
-      clientID: 'APP_ID',
-      clientSecret: 'APP_SECRET',
+      clientID: '344e2d33697b52cefc1a',
+      clientSecret: '822bb128184d14c7c4d5ee2a2f59aabd83ba1857',
       callbackURL: 'http://localhost:3000/auth/github/callback'
     },
     linkedin: {
@@ -42,8 +42,8 @@ module.exports = {
         callbackURL: 'http://localhost:3000/auth/linkedin/callback'
       },
     google: {
-      clientID: "APP_ID",
-      clientSecret: "APP_SECRET",
+      clientID: "1080742679703.apps.googleusercontent.com",
+      clientSecret: "-B2qpyywDVY--Ma89pwD_WHW",
       callbackURL: "http://localhost:3000/auth/google/callback"
     },
   },
@@ -81,4 +81,4 @@ module.exports = {
     }
   },
   production: {}
-}
+};
