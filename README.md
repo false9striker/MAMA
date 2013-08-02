@@ -15,29 +15,37 @@ MAMA, the **MA**ss **MA**iler application, is an open source alternative to mail
 
 #### Folder Structure ####
 
-
+	-- config (contains all hard coded config items)
+	-- controllers (contains all the routing logic)
     -- models (contains all the domain objects)    
     -- node_modules (dependency directory created after step #3 above - DO NOT CHECK-IN)    	
     -- public (all the files that are externally accessed)
          -- css
          -- images
          -- js
-            -- vendor    
-    -- routes (contains all the routing logic)   
+            -- vendor       
     -- views (jade and html pages)
 
 #### How to add new dependencies ####
 
  If you are working on something and you need to add a new dependency edit the `dependencies` section in `package.json` file. Shown below is the current configuration
 
-    "dependencies": {
-       "express": "3.3.1",
-       "jade": "*",
-       "stylus": "*",
-       "mongoose" :"latest",
-       "passport": "latest",
-       "passport-local": "latest"
-    }
+	"dependencies": {
+		"express": "3.3.4",
+		"jade": "*",
+		"stylus": "*",
+		"mongoose" :"latest",
+		"connect-flash": "latest",    
+		"passport": "latest",
+		"passport-facebook": "latest",
+		"passport-twitter": "latest",
+		"passport-github": "latest",
+		"passport-google-oauth": "latest",
+		"connect-multipart-gridform":"0.1.4",
+		"passport-linkedin":"latest",
+		"ya-csv":"latest",
+		"passport-google":"latest"
+	}
  
 
 #### Running the application ####
