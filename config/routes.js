@@ -34,6 +34,26 @@ module.exports = function(app, config) {
 		failureRedirect : '/'
 	}), users.authCallback);
 	
+	//Google route
+	
+	app.get('/auth/google', passport.authenticate('google', {scope: 'https://www.google.com/m8/feeds'} , { failureRedirect : '/'	}), users.signin);
+
+	app.get('/auth/google/callback', passport.authenticate('google', {
+		failureRedirect : '/'
+	}), users.authCallback);
+	
+	// Github route
+	
+	app.get('/auth/github', passport.authenticate('github', {
+		failureRedirect : '/'
+	}), users.signin);
+
+	app.get('/auth/github/callback', passport.authenticate('github', {
+		failureRedirect : '/'
+	}), users.authCallback);
+
+	//
+	
 	app.get('/auth/linkedin', passport.authenticate('linkedin', {
 		failureRedirect : '/'
 	}), users.signin);

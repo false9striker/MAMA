@@ -2,10 +2,9 @@
  * Module dependencies.
  */
 
-var mongoose = require('mongoose'), User = mongoose.model('User')
+var mongoose = require('mongoose'), User = mongoose.model('User');
 
-exports.signin = function(req, res) {
-}
+exports.signin = function(req, res) {};
 
 /**
  * Auth callback
@@ -14,23 +13,30 @@ exports.signin = function(req, res) {
 exports.authCallback = function(req, res, next) {
 	console.log(req);
 	var user = req.user;
-	//Twitter
+	// Handling diff login strategies.
 	if (user.twitter) {
+		// twitter
 		res.redirect('/home/' + user.twitter.screen_name);
-
-	}//LinkedIn
-	else if(user._id){
+	} else if (user.github) {
+		// github
+		res.redirect('/home/' + user.github.login);
+	} else if (user.google) {
+		// google
+		res.redirect('/home/' + user.google.name);
+	} else if (user._id) {
+		// linkedin
 		res.redirect('/home/' + user._id);
 	} else if (user.facebook) {
+		// facebook
 		res.redirect('/home/' + user.facebook.username);
 	}
-	//if nothing works redirect to home page
-	else
+	else{
 		res.redirect('/');
-	// TODO: Other strategies should check what is the output from the console.log
-	// in the first line and
-
-}
+	}
+	// TODO: Other strategies should check what is the output from the
+	// console.log
+	// in the first line an
+};
 
 /**
  * Show login form
@@ -41,8 +47,8 @@ exports.login = function(req, res) {
 		title : 'Login',
 		message : req.flash('error'),
 		req: req
-	})
-}
+	});
+};
 
 /**
  * Show sign up form
@@ -52,25 +58,25 @@ exports.signup = function(req, res) {
 	res.render('users/signup', {
 		title : 'Sign up',
 		user : new User()
-	})
-}
+	});
+};
 
 /**
  * Logout
  */
 
 exports.logout = function(req, res) {
-	req.logout()
-	res.redirect('/')
-}
+	req.logout();
+	res.redirect('/');
+};
 
 /**
  * Session
  */
 
 exports.session = function(req, res) {
-	res.redirect('/')
-}
+	res.redirect('/');
+};
 
 /**
  * Create user
@@ -89,12 +95,12 @@ exports.session = function(req, res) {
  */
 
 exports.show = function(req, res) {
-	var user = req.profile
+	var user = req.profile;
 	res.render('users/show', {
 		title : user.name,
 		user : user
-	})
-}
+	});
+};
 
 /**
  * Find user by id
@@ -105,10 +111,10 @@ exports.user = function(req, res, next, id) {
 		_id : id
 	}).exec(function(err, user) {
 		if (err)
-			return next(err)
+			return next(err);
 		if (!user)
-			return next(new Error('Failed to load User ' + id))
-		req.profile = user
-		next()
-	})
-}
+			return next(new Error('Failed to load User ' + id));
+		req.profile = user;
+		next();
+	});
+};
